@@ -201,7 +201,12 @@ public class RecorderWindow{
             } else {
                 samplingRate.setEnabled(false);
                 sampRateL.setEnabled(false);
-                samplingRate.setValue(Integer.parseInt(sampRateL.getText()));
+                try{
+                    samplingRate.setValue(Integer.parseInt(sampRateL.getText()));
+                }catch(Exception e) {
+                    sampRateL.setText("44100");
+                    samplingRate.setValue(44100);
+                }
                 bitDepth.setEnabled(false);
                 play.setEnabled(false);
                 recordStop.setText(bundle.getString("REC_STP"));
